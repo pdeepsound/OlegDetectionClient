@@ -26,11 +26,11 @@ class ODAuthentication:
         else:
             raise ValueError(results.json()['detail'])
 
-    def new_token(self) -> Union[Tuple[str, str], None]:
+    def new_token(self) -> Union[Dict[str, str], None]:
         """Getting a new token
 
         Returns:
-            tuple that contains token and its expiration date
+            dict that contains token and its expiration date
         """
         url = f'{self.host_port}/new-token'
         results = requests.post(url, json=self.user_data)
@@ -38,7 +38,10 @@ class ODAuthentication:
             token = results.json()
             print(f"Successfully received a new token: {token['token']} "\
                   f"that expires {token['expires'].split('T')[0]}")
-            return token['token'], token['expires'].split('T')[0]
+            return {
+                'token': token['token'],
+                'expires': token['expires'].split('T')[0]
+            }
         else:
             raise ValueError(results.json()['detail'])
 
