@@ -1,0 +1,13 @@
+admin.ipynb
+test_client_oleg.ipynb
+test.ipynb
+recognized_audio/
+__pycache__/
+*/__pycache__/
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+*/*/.ipynb_checkpoints/
+*/*/*/.ipynb_checkpoints/
+*/*/*/*/.ipynb_checkpoints/
+test_audios/
+validation/
