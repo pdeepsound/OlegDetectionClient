@@ -1,6 +1,4 @@
-import time
 import requests
-import base64
 from typing import Union, List, Dict, Tuple
 
 from od_client.utils.server_utils import client_config
@@ -9,12 +7,12 @@ from od_client.utils.server_utils import client_config
 class ODAuthentication:
     def __init__(self, username: str, password: str) -> None:
         """Authentication by username and password
-        
+
         Args:
             username: the username of user that was provided
             password: the password of user that was provided
         """
-        self.host_port = client_config['host'] + ':' + str(client_config['port'])
+        self.host_port = f"{client_config['host']}:{client_config['port']}"
         url = f'{self.host_port}/sign-in'
         self.username = username
         self.password = password
@@ -27,10 +25,10 @@ class ODAuthentication:
             print(f"Successfully signed-in with username {username}")
         else:
             raise ValueError(results.json()['detail'])
-        
+
     def new_token(self) -> Union[Tuple[str, str], None]:
         """Getting a new token
-        
+
         Returns:
             tuple that contains token and its expiration date
         """
@@ -39,11 +37,11 @@ class ODAuthentication:
         if results.status_code == 200:
             token = results.json()
             print(f"Successfully received a new token: {token['token']} "\
-            f"that expires {token['expires'].split('T')[0]}")
+                  f"that expires {token['expires'].split('T')[0]}")
             return token['token'], token['expires'].split('T')[0]
         else:
             raise ValueError(results.json()['detail'])
-      
+
     def all_tokens(self) -> Union[List[Dict[str, str]], None]:
         """Getting information all tokens that belong to user
         
@@ -61,14 +59,13 @@ class ODAuthentication:
                     'expires': token_info['expires'].split('T')[0]
                 } for token_info in tokens
             ]
-            
             return tokens
         else:
             raise ValueError(results.json()['detail'])
-              
+
     def recognized_seconds_by_user(self, date: str = 'month') -> Union[Dict[str, float], None]:
         """Getting the number of recognized seconds by user
-        
+
         Returns:
             dict that contains the number of recognized seconds 
             for Short Mode (key 'short_mode') and Long Mode (key 'long_mode')
@@ -96,4 +93,3 @@ class ODAuthentication:
             return recognized_seconds
         else:
             raise ValueError(results.json()['detail'])
-   

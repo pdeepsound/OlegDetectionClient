@@ -16,7 +16,7 @@ class ODRecognizer:
         Args:
             token: the API toke
         """
-        self.host_port = client_config['host'] + ':' + str(client_config['port'])
+        self.host_port = f"{client_config['host']}:{client_config['port']}"
         url = f'{self.host_port}/check-token'
         self.token = token
         self.token_data = {
