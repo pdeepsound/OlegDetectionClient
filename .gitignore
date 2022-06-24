@@ -1,4 +1,6 @@
 admin.ipynb
+*/.egg-info
+build/
 test_client_oleg.ipynb
 tests.ipynb
 recognized_audio/
