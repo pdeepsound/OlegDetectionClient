@@ -1,0 +1,16 @@
+README.md
+setup.py
+od_client/__init__.py
+od_client.egg-info/PKG-INFO
+od_client.egg-info/SOURCES.txt
+od_client.egg-info/dependency_links.txt
+od_client.egg-info/requires.txt
+od_client.egg-info/top_level.txt
+od_client/audio_preprocessing/__init__.py
+od_client/audio_preprocessing/load_audio.py
+od_client/request_methods/__init__.py
+od_client/request_methods/od_client_authentication.py
+od_client/request_methods/od_client_recognizer.py
+od_client/utils/__init__.py
+od_client/utils/recognizer_utils.py
+od_client/utils/server_utils.py
