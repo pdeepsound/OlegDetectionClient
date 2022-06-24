@@ -1,8 +1,0 @@
-README.md
-setup.py
-od_client/__init__.py
-od_client2.egg-info/PKG-INFO
-od_client2.egg-info/SOURCES.txt
-od_client2.egg-info/dependency_links.txt
-od_client2.egg-info/requires.txt
-od_client2.egg-info/top_level.txt

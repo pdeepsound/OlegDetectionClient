@@ -1,5 +1,5 @@
 admin.ipynb
-*/.egg-info
+*.egg-info/
 build/
 test_client_oleg.ipynb
 tests.ipynb
