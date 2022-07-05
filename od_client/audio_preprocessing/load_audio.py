@@ -9,8 +9,7 @@ def load_wav(
     max_duration: float = -1,
     channel=0
 ) -> Tuple[bytes, int, str, float]:
-    """
-    Loading bytes and other information from an audio file
+    """Loading bytes and other information from an audio file
 
     Args:
         filepath: path to the audio file
@@ -23,6 +22,7 @@ def load_wav(
         sr: sampling rate of the audio file
         dtype: audio bit depth
         duration: the duration in seconds
+
     """
     dtype_tranposed = {1: 'int8', 2: 'int16', 4: 'int32'}
     f = wave.open(filepath)

@@ -5,13 +5,15 @@ from od_client.utils.server_utils import client_config
 
 
 class ODAuthentication:
-    def __init__(self, username: str, password: str) -> None:
-        """Authentication by username and password
+    """Authentication by username and password
 
-        Args:
-            username: the username of user that was provided
-            password: the password of user that was provided
-        """
+    Args:
+        username: the username of user that was provided
+        password: the password of user that was provided
+
+    """
+
+    def __init__(self, username: str, password: str) -> None:
         self.host_port = f"{client_config['host']}:{client_config['port']}"
         url = f'{self.host_port}/sign-in'
         self.username = username
@@ -31,6 +33,7 @@ class ODAuthentication:
 
         Returns:
             dict that contains token and its expiration date
+
         """
         url = f'{self.host_port}/new-token'
         results = requests.post(url, json=self.user_data)
@@ -50,6 +53,7 @@ class ODAuthentication:
 
         Returns:
             list that contains tokens and their expiration date
+
         """
         url = f'{self.host_port}/my-tokens'
         results = requests.post(url, json=self.user_data)
@@ -76,6 +80,7 @@ class ODAuthentication:
             dict that contains the number of recognized seconds
             for Short Mode (key 'short_mode') and Long Mode (key 'long_mode')
             as well as their sum ('all')
+
         """
         if date != 'month' and date != 'all':
             raise ValueError("Date must be either 'month' or 'all'")

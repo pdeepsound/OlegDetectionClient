@@ -9,12 +9,14 @@ from od_client.utils.recognizer_utils import results_id_to_human
 
 
 class ODRecognizer:
-    def __init__(self, token: str) -> None:
-        """Getting access to the system by token
+    """Getting access to the system by token
 
-        Args:
-            token: the API token
-        """
+    Args:
+        token: the API token
+
+    """
+
+    def __init__(self, token: str) -> None:
         self.host_port = f"{client_config['host']}:{client_config['port']}"
         url = f'{self.host_port}/check-token'
         self.token = token
@@ -34,6 +36,7 @@ class ODRecognizer:
             dict that contains the number of recognized seconds
             for Short Mode (key 'short_mode') and Long Mode (key 'long_mode')
             as well as their sum ('all')
+
         """
         url = f'{self.host_port}/recognized-seconds-by-token'
         results = requests.post(url, json=self.token_data)
@@ -55,6 +58,7 @@ class ODRecognizer:
 
         Returns:
             dict that contains the owner of the token and expiration date
+
         """
         url = f'{self.host_port}/token-information'
         results = requests.post(url, json=self.token_data)
@@ -90,6 +94,7 @@ class ODRecognizer:
             for mode='long':
                 pandas.DataFrame (start, end, duration, confidence, results)
                     if the audio clip contain speech, else None
+
         """
         if mode != 'short' and mode != 'long':
             raise ValueError("Mode must be either 'short' or 'long'")
