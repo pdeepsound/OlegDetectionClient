@@ -13,8 +13,8 @@
 ## Установка
 После клонирования проекта:
 ```bash
-cd OlegDetectionClient
-pip install .
+$ cd OlegDetectionClient
+$ pip install .
 ```
 
 ## Примеры использования Oleg Detection API
