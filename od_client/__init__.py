@@ -1,3 +1,4 @@
 from od_client.request_methods.od_client_authentication import ODAuthentication
 from od_client.request_methods.od_client_recognizer import ODRecognizer
 from od_client.audio_preprocessing.load_audio import load_wav
+from od_client.audio_preprocessing.audio_stream import FromMicrophone

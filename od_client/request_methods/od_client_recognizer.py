@@ -120,7 +120,6 @@ class ODRecognizer:
                 table = table.drop(['results_id'], axis=1)
                 return table
             else:
-                print("Audio data does not contain speech")
-                return None
+                return "no_speech"
         else:
             raise ValueError(results.json()['detail'])
